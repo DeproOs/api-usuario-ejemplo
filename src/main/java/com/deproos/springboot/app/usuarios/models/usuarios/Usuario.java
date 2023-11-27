@@ -34,6 +34,7 @@ public class Usuario implements Serializable {
     private String email;
 
     @ManyToMany
+    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"), uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id","rol_id"})})
     private List<Rol> roles;
 
     public List<Rol> getRoles() {
